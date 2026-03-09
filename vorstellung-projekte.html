@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Teilnehmer-Projekte – {courseTitle}</title>
+
+    <!-- Hemera Schriften -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ============================================================
+         SLIDE-TEMPLATE: Vorstellung Teilnehmer-Projekte
+         ─────────────────────────────────────────────────
+         Mode A — Section Iteration (aither Spec 006)
+
+         Verarbeitung durch aither SlideGenerator:
+         • Sections MIT {participant:...} werden pro Teilnehmer
+           wiederholt (N Teilnehmer → N Slides)
+         • Sections OHNE Collection-Platzhalter bleiben 1× erhalten
+         • Scalar-Platzhalter ({courseTitle} etc.) werden überall ersetzt
+
+         Verfügbare Platzhalter:
+           Scalar:     {courseTitle}, {courseSlug}, {courseLevel},
+                       {courseStartDate}, {courseEndDate}, {participantCount}
+           Collection: {participant:name}, {participant:status},
+                       {participant:preparationIntent},
+                       {participant:desiredResults},
+                       {participant:lineManagerProfile},
+                       {participant:preparationCompleted}
+         ============================================================ -->
+
+    <style>
+        /* ── Design Tokens (Hemera Academy) ── */
+        :root {
+            --hemera-cream: #FBF5DD;
+            --hemera-petrol: #16404D;
+            --hemera-petrol-light: #2A5A6A;
+            --hemera-petrol-dark: #0D2A33;
+            --hemera-gold: #DDA853;
+            --hemera-gold-light: #E5BC75;
+            --hemera-sage: #A6CDC6;
+            --hemera-sage-light: #B8D9D2;
+            --hemera-white: #FFFFFF;
+        }
+
+        /* ── Slide-Layout (1920×1080) ── */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--hemera-petrol);
+            background: var(--hemera-cream);
+        }
+
+        /* ── Section = 1 Slide ── */
+        section.slide {
+            width: 1920px;
+            height: 1080px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 120px;
+            position: relative;
+            page-break-after: always;
+        }
+
+        /* ── Titelslide ── */
+        .slide-title {
+            background: var(--hemera-petrol);
+            color: var(--hemera-cream);
+        }
+        .slide-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--hemera-cream);
+        }
+        .slide-title .subtitle {
+            font-size: 1.5rem;
+            color: var(--hemera-gold);
+            font-weight: 500;
+        }
+        .slide-title .meta {
+            margin-top: 40px;
+            font-size: 1.1rem;
+            color: var(--hemera-sage);
+        }
+
+        /* ── Teilnehmer-Slide ── */
+        .slide-participant {
+            background: var(--hemera-cream);
+        }
+        .slide-participant .participant-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        .slide-participant .participant-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--hemera-petrol);
+            color: var(--hemera-cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .slide-participant h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--hemera-petrol);
+        }
+        .slide-participant .status-badge {
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: var(--hemera-sage-light);
+            color: var(--hemera-petrol);
+            margin-top: 4px;
+        }
+
+        /* ── Info-Karten ── */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .info-card {
+            background: var(--hemera-white);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid var(--hemera-gold);
+        }
+        .info-card.full-width {
+            grid-column: 1 / -1;
+        }
+        .info-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--hemera-gold);
+            margin-bottom: 12px;
+        }
+        .info-card p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--hemera-petrol);
+        }
+        .info-card.accent {
+            border-left-color: var(--hemera-petrol);
+        }
+        .info-card.accent h3 {
+            color: var(--hemera-petrol-light);
+        }
+
+        /* ── Abschluss-Slide ── */
+        .slide-closing {
+            background: var(--hemera-petrol);
+            color: var(--hemera-cream);
+            text-align: center;
+            align-items: center;
+        }
+        .slide-closing h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--hemera-cream);
+            margin-bottom: 16px;
+        }
+        .slide-closing .closing-sub {
+            font-size: 1.3rem;
+            color: var(--hemera-sage);
+        }
+
+        /* ── Decorative: Hemera Logo-Badge ── */
+        .hemera-badge {
+            position: absolute;
+            bottom: 32px;
+            right: 40px;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            color: var(--hemera-sage);
+            opacity: 0.6;
+        }
+        .slide-title .hemera-badge,
+        .slide-closing .hemera-badge {
+            color: var(--hemera-sage);
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ══════════════════════════════════════════════
+         SLIDE 1: Titelslide (Scalar — bleibt 1×)
+         ══════════════════════════════════════════════ -->
+    <section class="slide slide-title">
+        <h1>{courseTitle}</h1>
+        <div class="subtitle">Vorstellung der Teilnehmer-Projekte</div>
+        <div class="meta">{participantCount} Teilnehmer · {courseStartDate}</div>
+        <span class="hemera-badge">Hemera Academy</span>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         SLIDE 2–N+1: Teilnehmer-Slides (Collection — wird pro Teilnehmer wiederholt)
+         ══════════════════════════════════════════════ -->
+    <section class="slide slide-participant">
+        <div class="participant-header">
+            <div class="participant-avatar">●</div>
+            <div>
+                <h2>{participant:name}</h2>
+                <span class="status-badge">Vorbereitung: {participant:preparationCompleted}</span>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Absicht / Vorhaben</h3>
+                <p>{participant:preparationIntent}</p>
+            </div>
+
+            <div class="info-card accent">
+                <h3>Gewünschte Ergebnisse</h3>
+                <p>{participant:desiredResults}</p>
+            </div>
+
+            <div class="info-card full-width">
+                <h3>Profil des Vorgesetzten</h3>
+                <p>{participant:lineManagerProfile}</p>
+            </div>
+        </div>
+
+        <span class="hemera-badge">Hemera Academy</span>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         SLIDE N+2: Abschluss-Slide (Static — bleibt 1×)
+         ══════════════════════════════════════════════ -->
+    <section class="slide slide-closing">
+        <h2>Viel Erfolg bei euren Projekten!</h2>
+        <div class="closing-sub">{courseTitle} · Hemera Academy</div>
+        <span class="hemera-badge">Hemera Academy</span>
+    </section>
+
+</body>
+</html>
