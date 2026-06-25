@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "codacy": {
+      "type": "stdio",
+      "command": "bash",
+      "args": ["${workspaceFolder}/.vscode/codacy-mcp.sh", "${workspaceFolder}/.env.local"]
+    }
+  }
+}

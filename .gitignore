@@ -1,4 +1,9 @@
 
 
+# Editor
+.vscode/
+!.vscode/mcp.json
+.idea/
+
 #Ignore vscode AI rules
 .github/instructions/codacy.instructions.md
