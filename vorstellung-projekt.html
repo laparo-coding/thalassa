@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self';">
     <title>Vorstellung Teilnehmer-Projekte – Hemera Academy</title>
-
-    <!-- Hemera Schriften -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!--
          SLIDE-TEMPLATE: Vorstellung Teilnehmer-Projekte
@@ -33,108 +29,6 @@
                        {participant:preparationCompleted}
     -->
 
-    <style>
-        /* ── Preview-Styling (vom SlideGenerator ignoriert) ── */
-        /* Hemera Design Tokens (lib/design-tokens.ts) */
-        :root {
-            --hemera-beige: #EBE2D3;
-            --hemera-marsala: #884143;
-            --hemera-marsala-dark: #6B3234;
-            --hemera-bronze: #926A49;
-            --hemera-bronze-hover: #C99545;
-            --hemera-rosy-brown: #bc8f8f;
-            --hemera-light-black: #2D2D2D;
-            --hemera-white: #FFFFFF;
-            --hemera-teal: #16404D;
-            --slide-bg: #EBE2D3;
-            --slide-text: #2D2D2D;
-        }
-
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            font-size: 14px;
-            line-height: 1.6;
-            background: var(--hemera-beige);
-            color: var(--hemera-light-black);
-            padding: 32px 16px;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
-
-        /* Jede Section als skalierte Slide-Karte */
-        .slide {
-            width: 960px;
-            min-height: 540px;
-            max-width: 100%;
-            margin: 24px auto;
-            padding: 48px;
-            background: var(--hemera-white);
-            color: var(--hemera-light-black);
-            border-radius: 8px;
-            box-shadow: 0 4px 16px rgba(22, 64, 77, 0.12);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .slide h1 { font-size: 2.2rem; margin-bottom: 0.5em; }
-        .slide h2 { font-size: 1.8rem; margin-bottom: 0.4em; }
-        .slide h1, .slide h2 { color: var(--hemera-marsala); }
-        .slide h3 { font-size: 1.3rem; margin-bottom: 0.3em; color: var(--hemera-bronze); }
-        .slide p  { margin-bottom: 0.8em; }
-        .slide span { font-size: 0.85rem; opacity: 0.7; margin-top: auto; }
-
-        .slide .participant-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .slide .participant-header .avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--hemera-marsala);
-            color: var(--hemera-white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            flex-shrink: 0;
-        }
-
-        .slide .participant-header div:last-child {
-            text-align: left;
-        }
-
-        .slide .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 24px;
-            text-align: left;
-            width: 100%;
-            margin-bottom: 24px;
-        }
-
-        .slide .content-grid > div {
-            background: var(--hemera-white);
-            padding: 16px;
-            border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(22, 64, 77, 0.08);
-        }
-    </style>
 </head>
 <body>
 
