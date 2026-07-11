@@ -1,0 +1,31 @@
+name: 'CI: Codacy Analysis'
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  codacy-analysis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Codacy Trivy security scan
+        if: always()
+        run: |
+          set -euo pipefail
+          TRIVY_DB_REPOSITORY=ghcr.io/aquasecurity/trivy-db ./.codacy/cli.sh analyze -t trivy --format sarif -o /tmp/trivy-results.sarif
+          if [ -f /tmp/trivy-results.sarif ]; then
+            echo "Trivy scan complete: $(jq '[.runs[].results[]?] | length' /tmp/trivy-results.sarif) findings"
+          fi
+        env:
+          CODACY_API_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
