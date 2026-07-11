@@ -2,11 +2,8 @@
   "servers": {
     "codacy": {
       "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@codacy/codacy-mcp@latest"],
-      "env": {
-        "CODACY_ACCOUNT_TOKEN": "${input:codacy_token}"
-      }
+      "command": "bash",
+      "args": ["${workspaceFolder}/.vscode/codacy-mcp.sh", "${workspaceFolder}/.env.local"]
     },
     "playwright": {
       "type": "stdio",
