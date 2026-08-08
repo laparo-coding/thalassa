@@ -1,0 +1,5 @@
+# Codacy config files are auto-generated and contain timestamps that cause
+# noisy diffs. Use a filter to normalize timestamps so only meaningful
+# configuration changes appear in diffs.
+.codacy/codacy.config.json filter=codacy-timestamps
+.codacy/codacy.config.baseline.json filter=codacy-timestamps
