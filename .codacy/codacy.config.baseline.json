@@ -4543,8 +4543,6 @@
   "exclude": [
     ".codacy/cli-config.yaml",
     ".codacy/cli.sh",
-    ".codacy/codacy.config.baseline.json",
-    ".codacy/codacy.config.json",
     ".codacy/codacy.yaml",
     ".codacy/tools-configs/analysis_options.yaml",
     ".codacy/tools-configs/eslint.config.mjs",
