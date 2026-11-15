@@ -1,22 +1,3 @@
 {
-  "servers": {
-    "codacy": {
-      "type": "stdio",
-      "command": "bash",
-      "args": ["${workspaceFolder}/.vscode/codacy-mcp.sh"]
-    },
-    "playwright": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["@playwright/mcp@latest"]
-    }
-  },
-  "inputs": [
-    {
-      "id": "codacy_token",
-      "type": "promptString",
-      "description": "Enter your Codacy account token (from https://app.codacy.com/account/api-tokens)",
-      "password": true
-    }
-  ]
+	"servers": {}
 }

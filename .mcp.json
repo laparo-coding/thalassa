@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "codacy": {
+      "type": "local",
+      "command": "bash",
+      "args": [".vscode/codacy-mcp.sh"],
+      "tools": ["*"]
+    },
+    "playwright": {
+      "type": "local",
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"],
+      "tools": ["*"]
+    }
+  }
+}
