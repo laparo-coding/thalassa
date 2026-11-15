@@ -3,7 +3,7 @@
     "codacy": {
       "type": "local",
       "command": "bash",
-      "args": ["/Users/Andreas/GitHub/thalassa/.vscode/codacy-mcp.sh"],
+      "args": [".vscode/codacy-mcp.sh"],
       "tools": ["*"]
     },
     "playwright": {
